@@ -12,6 +12,7 @@ public class blackjack {
     //DEALING
     static void deal(){
         List<Integer> phand = new ArrayList<>();
+        List<Integer> dhand = new ArrayList<>();
         for (int i = 0; i < 2; i++){
             phand.add(deck.remove(0));
         }
