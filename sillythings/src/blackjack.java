@@ -9,6 +9,14 @@ public class blackjack {
     public static void main(String[] args){
         deckmngmnt();
         deal();
+        draw();
+    }
+
+    //DRAW
+    static void draw(){
+        String ask = scn.next();
+
+
     }
 
     //DEALING
@@ -23,9 +31,11 @@ public class blackjack {
         System.out.println(phand);
 
         //Compiler
+        int psum = 0;
         for (int y = 0; y < phand.size(); y++){
-            phand.get(y);
+            psum += phand.get(y);
         }
+        System.out.println(psum);
     }
     //DECK
     static void deckmngmnt(){
