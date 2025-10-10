@@ -3,13 +3,24 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class blackjack {
+    static List<Integer> deck = new ArrayList<>();
     public static void main(String[] args){
         deckmngmnt();
+        deal();
     }
 
+    //DEALING
+    static void deal(){
+        List<Integer> phand = new ArrayList<>();
+        List<Integer> dhand = new ArrayList<>();
+        for (int i = 0; i < 2; i++){
+            phand.add(deck.remove(0));
+        }
+        //System.out.println(deck);
+        System.out.println(phand);
+    }
     //DECK
     static void deckmngmnt(){
-        List<Integer> deck = new ArrayList<>();
         
         for (int k = 0; k < 4; k++){
             for (int i = 1; i < 10; i++){
@@ -22,7 +33,7 @@ public class blackjack {
 
         Collections.shuffle(deck);
 
-        System.out.println(deck);
+        //System.out.println(deck);
 
         //Analyzer
         //int z = 0;
