@@ -6,24 +6,50 @@ import java.util.Scanner;
 public class blackjack {
     static List<Integer> deck = new ArrayList<>();
     static Scanner scn = new Scanner(System.in);
+    static List<Integer> phand = new ArrayList<>();
+    static List<Integer> dhand = new ArrayList<>();
+    static boolean running = true;
     public static void main(String[] args){
         deckmngmnt();
         deal();
-        draw();
+        while (running == true){
+            draw();    
+        }    
     }
 
     //DRAW
     static void draw(){
-        String ask = scn.next();
+        String ask = scn.next().toLowerCase();
+        
+        if (ask.equals("h")){
+            //hit
+            phand.add(deck.remove(0));
+        }else if (ask.equals("s")){
+            running = false;
+        }
 
-
+        compile();
+    }
+    //Compiler
+    static void compile(){
+        int psum = 0;
+        for (int y = 0; y < phand.size(); y++){
+            psum += phand.get(y);
+        }
+        
+        int dsum = 0;
+        for (int y = 0; y < dhand.size(); y++){
+            dsum += dhand.get(y);
+        }
+        if (running == false){
+            System.out.println("dealer: " + dsum);
+            System.out.println("player: " + psum);
+        }
     }
 
     //DEALING
     static void deal(){
-        List<Integer> phand = new ArrayList<>();
-        List<Integer> dhand = new ArrayList<>();
-        for (int i = 0; i < 2; i++){
+        for (int k = 0; k < 2; k++){
             phand.add(deck.remove(0));
             dhand.add(deck.remove(0));
         }
@@ -31,11 +57,7 @@ public class blackjack {
         System.out.println(phand);
 
         //Compiler
-        int psum = 0;
-        for (int y = 0; y < phand.size(); y++){
-            psum += phand.get(y);
-        }
-        System.out.println(psum);
+        
     }
     //DECK
     static void deckmngmnt(){
