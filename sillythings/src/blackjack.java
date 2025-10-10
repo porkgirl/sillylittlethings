@@ -1,9 +1,11 @@
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 public class blackjack {
     static List<Integer> deck = new ArrayList<>();
+    static Scanner scn = new Scanner(System.in);
     public static void main(String[] args){
         deckmngmnt();
         deal();
@@ -15,9 +17,15 @@ public class blackjack {
         List<Integer> dhand = new ArrayList<>();
         for (int i = 0; i < 2; i++){
             phand.add(deck.remove(0));
+            dhand.add(deck.remove(0));
         }
-        //System.out.println(deck);
+        System.out.println(dhand);
         System.out.println(phand);
+
+        //Compiler
+        for (int y = 0; y < phand.size(); y++){
+            phand.get(y);
+        }
     }
     //DECK
     static void deckmngmnt(){
