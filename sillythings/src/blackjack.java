@@ -55,7 +55,7 @@ public class blackjack {
             phand.add(deck.remove(0));
             dhand.add(deck.remove(0));
         }
-        System.out.println(dhand);
+        //System.out.println(dhand);
         System.out.println(phand);
 
         //Compiler
