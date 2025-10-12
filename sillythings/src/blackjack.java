@@ -23,7 +23,9 @@ public class blackjack {
         
         if (ask.equals("h")){
             //hit
-            phand.add(deck.remove(0));
+            int card = deck.remove(0);
+            phand.add(card);
+            System.out.println(card);
         }else if (ask.equals("s")){
             running = false;
         }
@@ -41,7 +43,7 @@ public class blackjack {
         for (int y = 0; y < dhand.size(); y++){
             dsum += dhand.get(y);
         }
-        if (running == false){
+        if (running == true){
             System.out.println("dealer: " + dsum);
             System.out.println("player: " + psum);
         }
