@@ -124,9 +124,11 @@ public class Main {
         for (int d = 0; d < phand.size(); d++){
             psum += phand.get(d);
         }
-        System.out.println("player: " + psum);
+        if (go == false){
+            System.out.println("player: " + psum);
+        }
         System.out.println(" ");
-
+        
     }
 
     public static void main(String[] args){
@@ -153,7 +155,7 @@ public class Main {
 
         //AFTER PLAYING SECTION
         
-        System.out.println(" ");
+        //System.out.println(" ");
         sc.close();
 
         // outcomes
@@ -180,7 +182,7 @@ public class Main {
             // If both bust
         }
         if (psum > 21 && dsum > 21){
-            winner = "Dealer";
+            winner = "Dealer ";
         }
 
         // Printing Hands

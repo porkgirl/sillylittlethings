@@ -6,39 +6,60 @@ import java.util.Scanner;
 public class blackjack {
     static List<Integer> deck = new ArrayList<>();
     static Scanner scn = new Scanner(System.in);
+    static List<Integer> phand = new ArrayList<>();
+    static List<Integer> dhand = new ArrayList<>();
+    static boolean running = true;
     public static void main(String[] args){
         deckmngmnt();
         deal();
-        draw();
+        while (running == true){
+            draw();    
+        }    
     }
-    //drawing
-    static void draw(){
-        String ask = scn.next().toUpperCase();
 
-        if (ask.equals("H")){
-            System.out.println("Hit");
-        }else if (ask.equals("S")){
-            System.out.println("Stand");
+    //DRAW
+    static void draw(){
+        String ask = scn.next().toLowerCase();
+        
+        if (ask.equals("h")){
+            //hit
+            int card = deck.remove(0);
+            phand.add(card);
+            System.out.println(card);
+        }else if (ask.equals("s")){
+            running = false;
+        }
+
+        compile();
+    }
+    //Compiler
+    static void compile(){
+        int psum = 0;
+        for (int y = 0; y < phand.size(); y++){
+            psum += phand.get(y);
+        }
+        
+        int dsum = 0;
+        for (int y = 0; y < dhand.size(); y++){
+            dsum += dhand.get(y);
+        }
+        if (running == true){
+            System.out.println("dealer: " + dsum);
+            System.out.println("player: " + psum);
         }
     }
 
     //DEALING
     static void deal(){
-        List<Integer> phand = new ArrayList<>();
-        List<Integer> dhand = new ArrayList<>();
-        for (int i = 0; i < 2; i++){
+        for (int k = 0; k < 2; k++){
             phand.add(deck.remove(0));
             dhand.add(deck.remove(0));
         }
-        System.out.println("Dealer" + dhand);
-        System.out.println("Player" + phand);
-        
-        int psum = 0;
+        //System.out.println(dhand);
+        System.out.println(phand);
+
         //Compiler
-        for (int y = 0; y < phand.size(); y++){
-            psum += phand.get(y);
-        }
-        System.out.println(psum);
+        
     }
     //DECK
     static void deckmngmnt(){
