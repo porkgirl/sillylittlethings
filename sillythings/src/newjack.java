@@ -14,30 +14,30 @@ static Scanner action = new Scanner(System.in);
     public static void main(String[] args){
         System.out.println("this is blackjack");
         deck();
-        deal('a', 2);
-        compile('a');
+        deal("a", 2);
+        compile("a");
         while (running == true){
             turn();
         }
-        //run dealer here
+        dealer();
         action.close();
     }
     static void dealer(){
         System.out.println("hello, i am dealer");
     }
     static void turn(){
-        compile('p');
+        compile("p");
         if (psum > 21){
             running = false;
         }
         System.out.println("Hit or Stand");
         
-        String recived = action.next();
+        String recived = action.next().toUpperCase();
         System.out.println(recived);
-        if (recived == "h"){
-            deal('p', 1);
+        if (recived.equals("HIT") || recived.equals("H")){
+            deal("p", 1);
             System.out.println("hit");
-        }else if (recived == "STAND" || recived == "S"){
+        }else if (recived.equals("STAND") || recived.equals("S")){
             running = false;
         }//else{
             //System.out.println("ERROR");
@@ -56,35 +56,35 @@ static Scanner action = new Scanner(System.in);
             //System.out.println(deck);
         }
     }
-    static void deal(Character hand, int cards){
+    static void deal(String hand, int cards){
         for (int h = 0; h < cards; h++){
-            if (hand == 'a'){
+            if (hand.equals("a")){
                 phand.add(deck.remove(0));
                 dhand.add(deck.remove(0));
-            }else if (hand == 'd'){
+            }else if (hand.equals("d")){
                 dhand.add(deck.remove(0));
-            }else if (hand == 'p'){
+            }else if (hand.equals("p")){
                 phand.add(deck.remove(0));
             }
         }
         System.out.println(phand + " | " + dhand);
     }
-    static void compile(Character sum){
+    static void compile(String sum){
         psum = 0;
         dsum = 0;
 
-        if (sum == 'a'){
+        if (sum.equals("a")){
             for (int c = 0; c < dhand.size(); c++){
                 dsum += dhand.get(c);
             }
             for (int c = 0; c < phand.size(); c++){
                 psum += phand.get(c);
             }
-        }else if (sum == 'p'){
+        }else if (sum.equals("p")){
             for (int c = 0; c < phand.size(); c++){
                 psum += phand.get(c);
             }
-        }else if (sum == 'd'){
+        }else if (sum.equals("d")){
             for (int c = 0; c < dhand.size(); c++){
                 dsum += dhand.get(c);
             }
