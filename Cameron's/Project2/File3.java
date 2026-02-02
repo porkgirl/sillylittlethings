@@ -49,13 +49,24 @@ public class File3 {
             //indxval is a different way of saying currval so that currval can be checked to see if it is 9
             int indxval;
 
-            //this says if currval is greater than 9 to subtract 9 from it to get a value between 1-5
+            //this says that if the currval is greater than 9, it needs to minus 10
             if (currval > 9) {
                 indxval = currval - 10;
-                
+
+                //the value of indxval is a string from the alpha list
+                output.add(alpha.get(indxval));
+            } else if (currval < 10){
+                output.add(String.valueOf(currval));
             }
 
         }
+
+        //for loop that takes the output
+        for(int i = 0; i < output.size(); i ++){
+            System.out.print(output.get(i) + " ");
+        }
+
+        System.out.println();
 
         //for loop that takes the 6 values from before and prints them with a space afterwards
         //int i = 0; i < numbers.size(); i ++ states that i starts at 0 and if it is anything less than the number size, which is 6, add 1
@@ -63,7 +74,6 @@ public class File3 {
         for(int i = 0; i < numbers.size(); i ++){
             System.out.print(numbers.get(i) + " ");
         }
-
     }
 
 }

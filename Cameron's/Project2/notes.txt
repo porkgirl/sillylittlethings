@@ -1,0 +1,7 @@
+10-15 to be a-f
+0-9 are numbers
+10-15 are letters
+
+if() {
+
+}
