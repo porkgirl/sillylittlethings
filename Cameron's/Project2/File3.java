@@ -27,6 +27,9 @@ public class File3 {
     //main method of the file, it is the method that can be run
     public static void main(String[] args) {
 
+        //adds a # to the front of the hexcode
+        output.add("#");
+
         //creates a varible that is random
         Random crazy = new Random();
 
@@ -53,15 +56,16 @@ public class File3 {
             if (currval > 9) {
                 indxval = currval - 10;
 
-                //the value of indxval is a string from the alpha list
-                output.add(alpha.get(indxval));
+                //the value of indxval is a string varible from the alpha list that is picked because indxval is a number between 1-6 and makes it uppercase
+                output.add(alpha.get(indxval).toUpperCase());
+
+            //currval is added to output after being turned into a String varible if it is less than 10    
             } else if (currval < 10){
                 output.add(String.valueOf(currval));
             }
 
         }
 
-        //for loop that takes the output
         for(int i = 0; i < output.size(); i ++){
             System.out.print(output.get(i) + " ");
         }
