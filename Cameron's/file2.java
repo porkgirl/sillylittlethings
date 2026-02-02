@@ -23,7 +23,10 @@ public class file2 {
         // System.out.println(numbers);
     }
     public void Combine() {
+        //combine is a different function than deck to keep them seperate
         System.out.println(suits.remove(0) + numbers.remove(0));
+        //prints to terimal
+        //remove(index) takes one out of the list, either suits or numbers
     }
 
 }
