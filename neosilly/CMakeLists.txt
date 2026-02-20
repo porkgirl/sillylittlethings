@@ -3,4 +3,6 @@ project(neosilly)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(neosilly main.cpp)
+add_executable(neosilly
+        BlueJack.cpp
+        BlueJack.h)
